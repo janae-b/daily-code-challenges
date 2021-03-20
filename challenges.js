@@ -531,40 +531,40 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime (inputNumber) {
-let isNumPrime = false
-let jIndex = 0  
+// function isPrime (inputNumber) {
+// let isNumPrime = false
+// let jIndex = 0  
 
-if (inputNumber === 2 || inputNumber === 3) {
-  return isNumPrime = true
-} else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
-  return isNumPrime = false
-} else { 
-  jIndex = 5  // Initialize for loop
-  isNumPrime = true // Will be set to false if a factor is found
+// if (inputNumber === 2 || inputNumber === 3) {
+//   return isNumPrime = true
+// } else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
+//   return isNumPrime = false
+// } else { 
+//   jIndex = 5  // Initialize for loop
+//   isNumPrime = true // Will be set to false if a factor is found
 
-  while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
-    if (inputNumber % jIndex === 0) {
+//   while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
+//     if (inputNumber % jIndex === 0) {
       
-      //found a factor, so inputNumber is not a Prime
-      return isNumPrime = false
-    } else { // Not divisible by jIndex, get next number to try as a factor
+//       //found a factor, so inputNumber is not a Prime
+//       return isNumPrime = false
+//     } else { // Not divisible by jIndex, get next number to try as a factor
 
-      jIndex += 2 //Skip all the even numbers
-      if (jIndex % 3 === 0) {
-        jIndex += 2 //This is odd and not divisible by 3
-      } // End of small if
-    } // End of Else
-  }// End while
-  return isNumPrime
- } // End of first if
-} // End of Function isPrime()
+//       jIndex += 2 //Skip all the even numbers
+//       if (jIndex % 3 === 0) {
+//         jIndex += 2 //This is odd and not divisible by 3
+//       } // End of small if
+//     } // End of Else
+//   }// End while
+//   return isNumPrime
+//  } // End of first if
+// } // End of Function isPrime()
 
-console.log(`Solution for isPrime 25 ${isPrime(25)}`)
-console.log(`Solution for isPrime 29 ${isPrime(29)}`)
-console.log(`Solution for isPrime 4 ${isPrime(4)}`)
-console.log(`Solution for isPrime 200 ${isPrime(200)}`)
-console.log(`Solution for isPrime 9 ${isPrime(9)}`)
+// console.log(`Solution for isPrime 25 ${isPrime(25)}`)
+// console.log(`Solution for isPrime 29 ${isPrime(29)}`)
+// console.log(`Solution for isPrime 4 ${isPrime(4)}`)
+// console.log(`Solution for isPrime 200 ${isPrime(200)}`)
+// console.log(`Solution for isPrime 9 ${isPrime(9)}`)
 /*-----------------------------------------------------------------------------
 Challenge: 21-primeFactors
 
@@ -588,8 +588,60 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-
-
+function primeFactors(inputNumber) {
+  let arrayPrimeFactors = []
+  let arrayPFIndex = 0
+  let jNum = inputNumber
+ 
+  let nextFactor = 2
+  let moreSearch = true
+  
+  if (jNum <= 1) {
+    // console.log(`Error = inputNumber <= 1`)
+    return []
+  } else {
+    moreSearch = true //Initialize the loop
+    nextFactor = 2 //Initialize to the first prime factor to check
+    let i = 0
+    while (moreSearch === true && i < 80) {
+      i++
+      // console.log(`jNum is ${jNum}`)
+      // console.log(`nextFactor is ${nextFactor}`)
+      if (jNum % nextFactor === 0) {
+        // Yes, is divisible, add nextFactor to array of primes for this number
+        arrayPrimeFactors.push(nextFactor)
+        arrayPFIndex += 1 // increment the index, count of prime factors found
+        //Divide (remove this prime factor from the number being factored)
+        jNum = jNum / nextFactor
+        //if jNum === 1 then all the prime factors have been found
+        // console.log(`if jNum is ${jNum}`)
+        // console.log(`if nextFactor is ${nextFactor}`)
+        if (jNum === 1) {
+          
+          moreSearch = false
+        }
+      }
+      else {
+        if (nextFactor === 2) {
+          nextFactor = 3
+        } else {
+          nextFactor += 2
+        }
+        if (nextFactor > jNum) {
+          moreSearch = false
+        }
+      }
+    }
+  }
+  return arrayPrimeFactors
+} //End of primeFactors
+console.log(`Is primeFactors 2: ${primeFactors(2)}`)
+console.log(`Is primeFactors 3: ${primeFactors(3)}`)
+console.log(`Is primeFactors 4: ${primeFactors(4)}`)
+console.log(`Is primeFactors 18: ${primeFactors(18)}`)
+console.log(`Is primeFactors 29: ${primeFactors(29)}`)
+console.log(`Is primeFactors 105: ${primeFactors(105)}`)
+console.log(`Is primeFactors 200: ${primeFactors(200)}`)
 
 
 
