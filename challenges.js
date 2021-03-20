@@ -17,6 +17,8 @@ function sayHello() {
   return 'Hello!'
 }
 
+console.log(sayHello())
+
 /*-----------------------------------------------------------------------------
 Challenge: 01-addOne
 
@@ -33,11 +35,11 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
-function addOne(num) {
-return num + 1
-}
+// function addOne(num) {
+//   return num + 1
+// }
 
-
+// console.log(`Solution for addOne: ${addOne(5)}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -57,16 +59,16 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-function addTwoNumbers(num1, num2){
-  if(isNaN(num1) || isNaN(num2)){
-return NaN
-  }
-  else {
-    return num1 + num2
-  } 
-}
+// function addTwoNumbers(num1, num2){
+//   if(isNaN(num1) || isNaN(num2)){
+//     return NaN
+//   }
+//   else {
+//     return num1 + num2
+//   } 
+// } 
 
-
+// console.log(`Solution for addTwoNumbers: ${addTwoNumbers(4,4)}`)
 
 
 /*-----------------------------------------------------------------------------
@@ -85,10 +87,11 @@ sumNumbers([10]) //=> 10
 sumNumbers([5, 10]) //=> 15
 sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
+
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-
+// function sumNumbers ()
 
 
 
@@ -528,11 +531,40 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
+function isPrime (inputNumber) {
+let isNumPrime = false
+let jIndex = 0  
 
+if (inputNumber === 2 || inputNumber === 3) {
+  return isNumPrime = true
+} else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
+  return isNumPrime = false
+} else { 
+  jIndex = 5  // Initialize for loop
+  isNumPrime = true // Will be set to false if a factor is found
 
+  while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
+    if (inputNumber % jIndex === 0) {
+      
+      //found a factor, so inputNumber is not a Prime
+      return isNumPrime = false
+    } else { // Not divisible by jIndex, get next number to try as a factor
 
+      jIndex += 2 //Skip all the even numbers
+      if (jIndex % 3 === 0) {
+        jIndex += 2 //This is odd and not divisible by 3
+      } // End of small if
+    } // End of Else
+  }// End while
+  return isNumPrime
+ } // End of first if
+} // End of Function isPrime()
 
-
+console.log(`Solution for isPrime 25 ${isPrime(25)}`)
+console.log(`Solution for isPrime 29 ${isPrime(29)}`)
+console.log(`Solution for isPrime 4 ${isPrime(4)}`)
+console.log(`Solution for isPrime 200 ${isPrime(200)}`)
+console.log(`Solution for isPrime 9 ${isPrime(9)}`)
 /*-----------------------------------------------------------------------------
 Challenge: 21-primeFactors
 
