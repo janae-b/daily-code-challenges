@@ -39,7 +39,7 @@ addOne(-5) //=> -4
 //   return num + 1
 // }
 
-// console.log(`Solution for addOne: ${addOne(5)}`)
+// console.log(`Solution for 01-addOne: ${addOne(5)}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -68,7 +68,7 @@ addTwoNumbers('Hello', 5) //=> NaN
 //   } 
 // } 
 
-// console.log(`Solution for addTwoNumbers: ${addTwoNumbers(4,4)}`)
+// console.log(`Solution for 02-addTwoNumbers: ${addTwoNumbers(4,4)}`)
 
 
 /*-----------------------------------------------------------------------------
@@ -91,9 +91,18 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-// function sumNumbers ()
+// function sumNumbers(newArray) {
+//   let newArraySum = 0
+//   for (let i = 0; i < newArray.length; i++ ) {
+//     newArraySum += newArray[i]
+//   }
+//   return newArraySum
+// }
 
-
+// console.log(`Solution for 03-sumNumbers: ${sumNumbers([10])}`)
+// console.log(`Solution for 03-sumNumbers: ${sumNumbers([5, 10])}`)
+// console.log(`Solution for 03-sumNumbers: ${sumNumbers([2, 10, -5])}`)
+// console.log(`Solution for 03-sumNumbers: ${sumNumbers([])}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 04-addList
@@ -113,7 +122,6 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
-
 
 
 
@@ -588,61 +596,7 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
-function primeFactors(inputNumber) {
-  let arrayPrimeFactors = []
-  let arrayPFIndex = 0
-  let jNum = inputNumber
- 
-  let nextFactor = 2
-  let moreSearch = true
-  
-  if (jNum <= 1) {
-    // console.log(`Error = inputNumber <= 1`)
-    return []
-  } else {
-    moreSearch = true //Initialize the loop
-    nextFactor = 2 //Initialize to the first prime factor to check
-    let i = 0
-    while (moreSearch === true && i < 80) {
-      i++
-      // console.log(`jNum is ${jNum}`)
-      // console.log(`nextFactor is ${nextFactor}`)
-      if (jNum % nextFactor === 0) {
-        // Yes, is divisible, add nextFactor to array of primes for this number
-        arrayPrimeFactors.push(nextFactor)
-        arrayPFIndex += 1 // increment the index, count of prime factors found
-        //Divide (remove this prime factor from the number being factored)
-        jNum = jNum / nextFactor
-        //if jNum === 1 then all the prime factors have been found
-        // console.log(`if jNum is ${jNum}`)
-        // console.log(`if nextFactor is ${nextFactor}`)
-        if (jNum === 1) {
-          
-          moreSearch = false
-        }
-      }
-      else {
-        if (nextFactor === 2) {
-          nextFactor = 3
-        } else {
-          nextFactor += 2
-        }
-        if (nextFactor > jNum) {
-          moreSearch = false
-        }
-      }
-    }
-  }
-  return arrayPrimeFactors
-} //End of primeFactors
-console.log(`Is primeFactors 2: ${primeFactors(2)}`)
-console.log(`Is primeFactors 3: ${primeFactors(3)}`)
-console.log(`Is primeFactors 4: ${primeFactors(4)}`)
-console.log(`Is primeFactors 18: ${primeFactors(18)}`)
-console.log(`Is primeFactors 29: ${primeFactors(29)}`)
-console.log(`Is primeFactors 105: ${primeFactors(105)}`)
-console.log(`Is primeFactors 200: ${primeFactors(200)}`)
-
+// 0
 
 
 /*-----------------------------------------------------------------------------
@@ -721,7 +675,7 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
-
+//What are the asky code
 
 
 
