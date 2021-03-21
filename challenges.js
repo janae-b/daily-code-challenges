@@ -135,7 +135,7 @@ add(7,-12) //=> -5
 // console.log(`Solution for 03-addList: ${addList(7, -12)}`)
 // console.log(`Solution for 03-addList: ${addList()}`)
 
-// /*-----------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
 
 Difficulty: Basic
@@ -197,10 +197,12 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
+function reverseUpcaseString (string) {
+  return string.split('').reverse().join('').toUpperCase('')
+}
 
 
-
-
+console.log(`Solution for 07-reverseUpcaseString: ${reverseUpcaseString('!yensid evol i')}`)
 /*-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
 
