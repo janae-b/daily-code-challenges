@@ -154,10 +154,14 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
+function computeRemainder (dividend, divisor) {
+  if (divisor === 0) return Infinity;
+  return dividend - (Math.floor(dividend / divisor) * divisor)
+}
 
-
-
-
+console.log(`Solution for 05-computeRemainder: ${computeRemainder(10,2)}`)
+console.log(`Solution for 05-computeRemainder: ${computeRemainder(4,0)}`)
+console.log(`Solution for 05-computeRemainder: ${computeRemainder(10.5,3)}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 06-range
@@ -197,12 +201,12 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-function reverseUpcaseString (string) {
-  return string.split('').reverse().join('').toUpperCase('')
-}
+// function reverseUpcaseString (string) {
+//   return string.split('').reverse().join('').toUpperCase('')
+// }
 
 
-console.log(`Solution for 07-reverseUpcaseString: ${reverseUpcaseString('!yensid evol i')}`)
+// console.log(`Solution for 07-reverseUpcaseString: ${reverseUpcaseString('!yensid evol i')}`)
 /*-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
 
