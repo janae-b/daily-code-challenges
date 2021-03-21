@@ -122,11 +122,20 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
+// function addList () {
+//   let numArgs = 0
+//   for (let i=0; i < arguments.length; i++) {
+//     numArgs += arguments[i]
+//   }
+//   return numArgs
+// }
 
+// console.log(`Solution for 04-addList: ${addList(1)}`)
+// console.log(`Solution for 03-addList: ${addList(1,50,1.23)}`)
+// console.log(`Solution for 03-addList: ${addList(7, -12)}`)
+// console.log(`Solution for 03-addList: ${addList()}`)
 
-
-
-/*-----------------------------------------------------------------------------
+// /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
 
 Difficulty: Basic
