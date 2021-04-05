@@ -325,6 +325,8 @@ function charCount(str) {
   return result;
 }
 
+
+
 /*--- convert str to array and use reduce with a ternary ---*/
 // function charCount(str) {
 //   return str.split('').reduce(function(countObj, char) {

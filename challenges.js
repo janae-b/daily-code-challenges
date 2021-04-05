@@ -154,14 +154,14 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-function computeRemainder (dividend, divisor) {
-  if (divisor === 0) return Infinity;
-  return dividend - (Math.floor(dividend / divisor) * divisor)
-}
+// function computeRemainder (dividend, divisor) {
+//   if (divisor === 0) return Infinity;
+//   return dividend - (Math.floor(dividend / divisor) * divisor)
+// }
 
-console.log(`Solution for 05-computeRemainder: ${computeRemainder(10,2)}`)
-console.log(`Solution for 05-computeRemainder: ${computeRemainder(4,0)}`)
-console.log(`Solution for 05-computeRemainder: ${computeRemainder(10.5,3)}`)
+// console.log(`Solution for 05-computeRemainder: ${computeRemainder(10,2)}`)
+// console.log(`Solution for 05-computeRemainder: ${computeRemainder(4,0)}`)
+// console.log(`Solution for 05-computeRemainder: ${computeRemainder(10.5,3)}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 06-range
@@ -182,9 +182,23 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
+// function range (startNum, endNum) {
+//   let i = 0;
+//   let rangeList = [];
+//   if (endNum < startNum) {
+//     return "First argument must be less than second"
+//   } else {
+//     for(i = startNum; i < endNum; i++) {
+//       rangeList.push([i])
+//     }
+//   } return rangeList
+// }
 
 
-
+// console.log(`Solution for 06-range: ${range(1,4)}`)
+// console.log(`Solution for 06-range: ${range(-2,3)}`)
+// console.log(`Solution for 06-range: ${range(1,1)}`)
+// console.log(`Solution for 06-range: ${range(5,2)}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -219,14 +233,20 @@ Prompt:
 
 Examples:
 
-removeEnds('SEI Rocks!'); //=> "DI Rocks"
+removeEnds('SEI Rocks!'); //=> "EI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
+// function removeEnds (inString) {
+//   if (inString.length < 3) {
+//     return ""
+//   } else {
+//     return(inString.substr(1,inString.length-2))
+//   }
+// }
 
-
-
-
+// console.log(`Solution for 08-removeEnds: ${removeEnds('SEI Rocks!')}`)
+// console.log(`Solution for 08-removeEnds: ${removeEnds('a')}`)
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
@@ -247,9 +267,25 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
+// function charCount (inString) {
+//   let i = 0
+//   let charCountObj = {}
+//   for (i = 0; i < inString.length; i++) {
+//     let jChar = inString.charAt(i); //jChar is the next character in string
+//     if (charCountObj.hasOwnProperty(jChar)) // if this character is already in the object
+//     {
+//       charCountObj[jChar]++ // increase the existing count
+//     }
+//     else {
+//       charCountObj[jChar] = 1 // add that key to the object with the count = 1
+//     }
+//   }
+//   return charCountObj
+// }
 
 
-
+// console.log("Solution to 09-charCount", charCount('hello'))
+// console.log("Solution to 09-charCount", charCount('Today is fantastic!'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
@@ -273,10 +309,17 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
+// function formatWithPadding (inNum, characterPad, stringLength) {
+//   let numString = inNum.toString()
+//   while (numString.length < stringLength ) {
+//     numString = characterPad + numString;
+//   }
+//   return numString
+// }
 
-
-
-
+// console.log("Solution to 10-formatWithPadding: " + formatWithPadding(123, '0', 5))
+// console.log("Solution to 10-formatWithPadding: " + formatWithPadding(42, '*', 10))
+// console.log("Solution to 10-formatWithPadding: " + formatWithPadding(1234, '*', 3))
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
 
@@ -298,10 +341,41 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
+function isPalindrome (palinString) {
+  let i, j = 0;
+  let foundPalindrome = true
+  if (palinString.length <= 1) {
+  return true
+  } 
+  let tempString = palinString.toUpperCase()
+  // tempString = tempString.trim()
+  tempString = tempString.split(" ").join("")
+  if (tempString.length <= 1) {
+    return true }
 
 
+    foundPalindrome = true;
+    i = 0
+    j = tempString.length -1
+    while ( (i < j) && (foundPalindrome === true)) {
+      if (tempString.charAt(i) === tempString.charAt(j))
+      {
+        i++
+        j--
+      }
+      else {
+        foundPalindrome = false
+      }
+    }
+    return foundPalindrome
+} 
+  
 
 
+console.log("Solution to 11-isPalindrome: " + isPalindrome('SEI Rocks'))
+console.log("Solution to 11-isPalindrome: " + isPalindrome('rotor'))
+console.log("Solution to 11-isPalindrome: " + isPalindrome(' A nut for a jar of tuna'))
+console.log("Solution to 11-isPalindrome: " + isPalindrome(''))
 /*-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
 
