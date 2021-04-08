@@ -35,9 +35,9 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
-// function addOne(num) {
-//   return num + 1
-// }
+function addOne(num) {
+  return num + 1
+}
 
 // console.log(`Solution for 01-addOne: ${addOne(5)}`)
 
@@ -59,14 +59,14 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-// function addTwoNumbers(num1, num2){
-//   if(isNaN(num1) || isNaN(num2)){
-//     return NaN
-//   }
-//   else {
-//     return num1 + num2
-//   } 
-// } 
+function addTwoNumbers(num1, num2){
+  if(isNaN(num1) || isNaN(num2)){
+    return NaN
+  }
+  else {
+    return num1 + num2
+  } 
+} 
 
 // console.log(`Solution for 02-addTwoNumbers: ${addTwoNumbers(4,4)}`)
 
@@ -91,13 +91,13 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-// function sumNumbers(newArray) {
-//   let newArraySum = 0
-//   for (let i = 0; i < newArray.length; i++ ) {
-//     newArraySum += newArray[i]
-//   }
-//   return newArraySum
-// }
+function sumNumbers(newArray) {
+  let newArraySum = 0
+  for (let i = 0; i < newArray.length; i++ ) {
+    newArraySum += newArray[i]
+  }
+  return newArraySum
+}
 
 // console.log(`Solution for 03-sumNumbers: ${sumNumbers([10])}`)
 // console.log(`Solution for 03-sumNumbers: ${sumNumbers([5, 10])}`)
@@ -122,13 +122,14 @@ add(1,50,1.23) //=> 52.23
 add(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
-// function addList () {
-//   let numArgs = 0
-//   for (let i=0; i < arguments.length; i++) {
-//     numArgs += arguments[i]
-//   }
-//   return numArgs
-// }
+
+function addList () {
+  let numArgs = 0
+  for (let i=0; i < arguments.length; i++) {
+    numArgs += arguments[i]
+  }
+  return numArgs
+}
 
 // console.log(`Solution for 04-addList: ${addList(1)}`)
 // console.log(`Solution for 03-addList: ${addList(1,50,1.23)}`)
@@ -154,10 +155,11 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
-// function computeRemainder (dividend, divisor) {
-//   if (divisor === 0) return Infinity;
-//   return dividend - (Math.floor(dividend / divisor) * divisor)
-// }
+
+function computeRemainder (dividend, divisor) {
+  if (divisor === 0) return Infinity;
+  return dividend - (Math.floor(dividend / divisor) * divisor)
+}
 
 // console.log(`Solution for 05-computeRemainder: ${computeRemainder(10,2)}`)
 // console.log(`Solution for 05-computeRemainder: ${computeRemainder(4,0)}`)
@@ -182,17 +184,17 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-// function range (startNum, endNum) {
-//   let i = 0;
-//   let rangeList = [];
-//   if (endNum < startNum) {
-//     return "First argument must be less than second"
-//   } else {
-//     for(i = startNum; i < endNum; i++) {
-//       rangeList.push([i])
-//     }
-//   } return rangeList
-// }
+function range (startNum, endNum) {
+  let i = 0;
+  let rangeList = [];
+  if (endNum < startNum) {
+    return "First argument must be less than second"
+  } else {
+    for(i = startNum; i < endNum; i++) {
+      rangeList.push([i])
+    }
+  } return rangeList
+}
 
 
 // console.log(`Solution for 06-range: ${range(1,4)}`)
@@ -215,9 +217,9 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-// function reverseUpcaseString (string) {
-//   return string.split('').reverse().join('').toUpperCase('')
-// }
+function reverseUpcaseString (string) {
+  return string.split('').reverse().join('').toUpperCase('')
+}
 
 
 // console.log(`Solution for 07-reverseUpcaseString: ${reverseUpcaseString('!yensid evol i')}`)
@@ -237,13 +239,13 @@ removeEnds('SEI Rocks!'); //=> "EI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
-// function removeEnds (inString) {
-//   if (inString.length < 3) {
-//     return ""
-//   } else {
-//     return(inString.substr(1,inString.length-2))
-//   }
-// }
+function removeEnds (inString) {
+  if (inString.length < 3) {
+    return ""
+  } else {
+    return(inString.substr(1,inString.length-2))
+  }
+}
 
 // console.log(`Solution for 08-removeEnds: ${removeEnds('SEI Rocks!')}`)
 // console.log(`Solution for 08-removeEnds: ${removeEnds('a')}`)
@@ -267,21 +269,22 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
-// function charCount (inString) {
-//   let i = 0
-//   let charCountObj = {}
-//   for (i = 0; i < inString.length; i++) {
-//     let jChar = inString.charAt(i); //jChar is the next character in string
-//     if (charCountObj.hasOwnProperty(jChar)) // if this character is already in the object
-//     {
-//       charCountObj[jChar]++ // increase the existing count
-//     }
-//     else {
-//       charCountObj[jChar] = 1 // add that key to the object with the count = 1
-//     }
-//   }
-//   return charCountObj
-// }
+function charCount (inString) {
+  let i = 0
+  let charCountObj = {}
+  for (i = 0; i < inString.length; i++) {
+    let jChar = inString.charAt(i); //jChar is the next character in string
+    if (charCountObj.hasOwnProperty(jChar)) // if this character is already in the object
+    {
+      charCountObj[jChar]++ // increase the existing count
+    }
+    else {
+      charCountObj[jChar] = 1 // add that key to the object with the count = 1
+    }
+  }
+  return charCountObj
+}
+
 
 
 // console.log("Solution to 09-charCount", charCount('hello'))
@@ -309,13 +312,13 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
-// function formatWithPadding (inNum, characterPad, stringLength) {
-//   let numString = inNum.toString()
-//   while (numString.length < stringLength ) {
-//     numString = characterPad + numString;
-//   }
-//   return numString
-// }
+function formatWithPadding (inNum, characterPad, stringLength) {
+  let numString = inNum.toString()
+  while (numString.length < stringLength ) {
+    numString = characterPad + numString;
+  }
+  return numString
+}
 
 // console.log("Solution to 10-formatWithPadding: " + formatWithPadding(123, '0', 5))
 // console.log("Solution to 10-formatWithPadding: " + formatWithPadding(42, '*', 10))
@@ -349,7 +352,7 @@ function isPalindrome (palinString) {
   } 
   let tempString = palinString.toUpperCase()
   // tempString = tempString.trim()
-  tempString = tempString.split(" ").join("")
+  tempString = tempString.split(" ").join("") 
   if (tempString.length <= 1) {
     return true }
 
@@ -372,10 +375,10 @@ function isPalindrome (palinString) {
   
 
 
-console.log("Solution to 11-isPalindrome: " + isPalindrome('SEI Rocks'))
-console.log("Solution to 11-isPalindrome: " + isPalindrome('rotor'))
-console.log("Solution to 11-isPalindrome: " + isPalindrome(' A nut for a jar of tuna'))
-console.log("Solution to 11-isPalindrome: " + isPalindrome(''))
+// console.log("Solution to 11-isPalindrome: " + isPalindrome('SEI Rocks'))
+// console.log("Solution to 11-isPalindrome: " + isPalindrome('rotor'))
+// console.log("Solution to 11-isPalindrome: " + isPalindrome(' A nut for a jar of tuna'))
+// console.log("Solution to 11-isPalindrome: " + isPalindrome(''))
 /*-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
 
@@ -397,10 +400,24 @@ hammingDistance('!!!!', '****'); //=> 4
 hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
+function hammingDistance (word, matchingWord) {
+  let count = 0;
+  if (word.length === matchingWord.length) {
+    for (let i = 0; i <= word.length; i++) {
+      if (word.toLowerCase()[i] !== matchingWord.toLowerCase()[i]) {
+        count++
+      }
+    }
+    return count;
+  }
+  return NaN
+}
 
 
-
-
+console.log("Solution to 12-hammingDistance: " + hammingDistance('abc', 'abc'))
+console.log("Solution to 12-hammingDistance: " + hammingDistance('a1c', 'a2c'))
+console.log("Solution to 12-hammingDistance: " + hammingDistance('!!!!', '****'))
+console.log("Solution to 12-hammingDistance " + hammingDistance('abc', 'ab'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
@@ -628,34 +645,34 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-// function isPrime (inputNumber) {
-// let isNumPrime = false
-// let jIndex = 0  
+function isPrime (inputNumber) {
+let isNumPrime = false
+let jIndex = 0  
 
-// if (inputNumber === 2 || inputNumber === 3) {
-//   return isNumPrime = true
-// } else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
-//   return isNumPrime = false
-// } else { 
-//   jIndex = 5  // Initialize for loop
-//   isNumPrime = true // Will be set to false if a factor is found
+if (inputNumber === 2 || inputNumber === 3) {
+  return isNumPrime = true
+} else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
+  return isNumPrime = false
+} else { 
+  jIndex = 5  // Initialize for loop
+  isNumPrime = true // Will be set to false if a factor is found
 
-//   while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
-//     if (inputNumber % jIndex === 0) {
+  while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
+    if (inputNumber % jIndex === 0) {
       
-//       //found a factor, so inputNumber is not a Prime
-//       return isNumPrime = false
-//     } else { // Not divisible by jIndex, get next number to try as a factor
+      //found a factor, so inputNumber is not a Prime
+      return isNumPrime = false
+    } else { // Not divisible by jIndex, get next number to try as a factor
 
-//       jIndex += 2 //Skip all the even numbers
-//       if (jIndex % 3 === 0) {
-//         jIndex += 2 //This is odd and not divisible by 3
-//       } // End of small if
-//     } // End of Else
-//   }// End while
-//   return isNumPrime
-//  } // End of first if
-// } // End of Function isPrime()
+      jIndex += 2 //Skip all the even numbers
+      if (jIndex % 3 === 0) {
+        jIndex += 2 //This is odd and not divisible by 3
+      } // End of small if
+    } // End of Else
+  }// End while
+  return isNumPrime
+ } // End of first if
+} // End of Function isPrime()
 
 // console.log(`Solution for isPrime 25 ${isPrime(25)}`)
 // console.log(`Solution for isPrime 29 ${isPrime(29)}`)
