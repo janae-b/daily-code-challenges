@@ -401,17 +401,22 @@ hammingDistance('abc', 'ab'); //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 function hammingDistance (word, matchingWord) {
-  let count = 0;
-  if (word.length === matchingWord.length) {
-    for (let i = 0; i <= word.length; i++) {
-      if (word.toLowerCase()[i] !== matchingWord.toLowerCase()[i]) {
-        count++
-      }
+  let countChars = 0;
+  let i = 0;
+  if (word.length !== matchingWord.length) {
+    return NaN; 
+  } else {    
+  for (i = 0; i < word.length; i++) {
+    if ( word.charAt(i) !== matchingWord.charAt(i) ) {
+      //Chars at this position are different, so increment the count.
+      countChars++;
     }
-    return count;
-  }
-  return NaN
+  } 
+  
 }
+return countChars
+}
+
 
 
 // console.log("Solution to 12-hammingDistance: " + hammingDistance('abc', 'abc'))
@@ -454,10 +459,10 @@ function mumble (inString) {
   return outString;
 }
 
-console.log("Solution to 13-mumble: "+ mumble('X')); 
-console.log("Solution to 13-mumble: " + mumble('abc')); 
-console.log("Solution to 13-mumble: " + mumble('121')); 
-console.log("Solution to 13-mumble: " + mumble('!A 2')); 
+// console.log("Solution to 13-mumble: "+ mumble('X')); 
+// console.log("Solution to 13-mumble: " + mumble('abc')); 
+// console.log("Solution to 13-mumble: " + mumble('121')); 
+// console.log("Solution to 13-mumble: " + mumble('!A 2')); 
 
 
 /*-----------------------------------------------------------------------------
