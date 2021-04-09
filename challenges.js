@@ -414,10 +414,10 @@ function hammingDistance (word, matchingWord) {
 }
 
 
-console.log("Solution to 12-hammingDistance: " + hammingDistance('abc', 'abc'))
-console.log("Solution to 12-hammingDistance: " + hammingDistance('a1c', 'a2c'))
-console.log("Solution to 12-hammingDistance: " + hammingDistance('!!!!', '****'))
-console.log("Solution to 12-hammingDistance " + hammingDistance('abc', 'ab'))
+// console.log("Solution to 12-hammingDistance: " + hammingDistance('abc', 'abc'))
+// console.log("Solution to 12-hammingDistance: " + hammingDistance('a1c', 'a2c'))
+// console.log("Solution to 12-hammingDistance: " + hammingDistance('!!!!', '****'))
+// console.log("Solution to 12-hammingDistance " + hammingDistance('abc', 'ab'))
 
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
@@ -438,9 +438,26 @@ mumble('121'); //=> '1-22-111'
 mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
+function mumble (inString) {
+  let i, j = 0;     //Loop indexes
+  let outString = inString[0];  //Return value, count of chars that are different.
+  if (inString.length === 1)
+  return outString;
+  //for each char in the input String, starting with second char.
+  for (i = 1; i < inString.length; i++ ) {
+    // Adding the hyphen
+    outString = outString + '-';
+    // Add this char the required number of times, which is (i+1) times.
+    for ( j = i+1; j > 0; j-- )
+    { outString = outString + inString[i] }
+  }
+  return outString;
+}
 
-
-
+console.log("Solution to 13-mumble: "+ mumble('X')); 
+console.log("Solution to 13-mumble: " + mumble('abc')); 
+console.log("Solution to 13-mumble: " + mumble('121')); 
+console.log("Solution to 13-mumble: " + mumble('!A 2')); 
 
 
 /*-----------------------------------------------------------------------------
