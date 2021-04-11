@@ -489,8 +489,8 @@ function fromPairs(arr) {
 }
 
 
-console.log("Solution to 14-fromPairs:", fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) );
-console.log("Solution to 14-fromPairs:", fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
+// console.log("Solution to 14-fromPairs:", fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) );
+// console.log("Solution to 14-fromPairs:", fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
 
 /*-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
@@ -510,9 +510,13 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}); //=> {a: 1, b: 22, c: 
 -----------------------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
+function mergeObjects(mainObject, ...nObjects) {
+  return Object.assign(mainObject, ...nObjects)
+}
 
-
-
+// console.log("Solution to 15-mergeObjects:", mergeObjects({}, {a: 1}));
+// console.log("Solution to 15-mergeObjects:", mergeObjects({a: 1, b: 2, c: 3}, {d: 4}));
+// console.log("Solution to 15-mergeObjects:", mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})); 
 
 /*-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -548,7 +552,33 @@ findHighestPriced([
 -----------------------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
+function findHighestPriced ( inArray ) {
+  let j = 0
+  let jSave = 0
+  let jPrice = inArray[0].price
+  for (j = 1; j < inArray.length - 1; j++ )
+  {
+    if ( inArray[j].price > jPrice)
+    {
+      jSave = j;
+      jPrice = inArray[j].price
+    }
+  }
+  return inArray[jSave]
+}
 
+// console.log("Solution to 16-findHighestPriced:", findHighestPriced([
+//     { sku: 'a1', price: 25 },
+//     { sku: 'b2', price: 5 },
+//     { sku: 'c3', price: 50 },
+//     { sku: 'd4', price: 10 }
+//   ]));
+// console.log("Solution to 16-findHighestPriced:", findHighestPriced([
+//   { sku: 'a1', price: 25 },
+//   { sku: 'b2', price: 50 },
+//   { sku: 'c3', price: 50 },
+//   { sku: 'd4', price: 10 }
+// ]));
 
 
 
@@ -579,9 +609,25 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
+function mapArray (inArray, callBack) {
+  let outArray = [];
+
+  inArray.forEach(function( el, idx ) {
+    outArray.push( callBack( el, idx))
+  })
+  return outArray
+}
 
 
 
+
+// console.log("Solution to 17-mapArray:", mapArray( [1, 2, 3], function(n) {
+//   return n * 2;
+// } ));
+
+// console.log("Solution to 17-mapArray:", mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
+//   return `${i + 1} - ${f}`;
+// } ));
 
 
 /*-----------------------------------------------------------------------------

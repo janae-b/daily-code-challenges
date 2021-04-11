@@ -562,6 +562,7 @@ function mergeObjects(target, ...objects) {
 // }
 
 
+
 /*-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
@@ -649,7 +650,6 @@ function mapArray(arr, cb) {
   });
   return newArr;
 }
-
 
 /*-----------------------------------------------------------------------------
 Challenge: 18-reduceArray
