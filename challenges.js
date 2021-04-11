@@ -453,8 +453,7 @@ function mumble (inString) {
     // Adding the hyphen
     outString = outString + '-';
     // Add this char the required number of times, which is (i+1) times.
-    for ( j = i+1; j > 0; j-- )
-    { outString = outString + inString[i] }
+    outString = outString + inString.charAt(i).repeat(i + 1) 
   }
   return outString;
 }
@@ -483,9 +482,15 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 
+function fromPairs(arr) {
+  let newObject = {}
+  newObject = Object.fromEntries(arr)
+  return newObject
+}
 
 
-
+console.log("Solution to 14-fromPairs:", fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]) );
+console.log("Solution to 14-fromPairs:", fromPairs([ ['name', 'Sam'], ['age', 24], ['name', 'Sally'] ]))
 
 /*-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
