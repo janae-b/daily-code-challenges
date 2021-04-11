@@ -609,11 +609,13 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
-function mapArray (inArray, callBack) {
+function mapArray (inArray, cbFunction) {
   let outArray = [];
 
-  inArray.forEach(function( el, idx ) {
-    outArray.push( callBack( el, idx))
+  inArray.forEach(function( inArrayElement, j ) {
+    // console.log(`before call ${inArrayElement},${j}`)
+    outArray.push( cbFunction( inArrayElement, j))
+    // console.log(`after call ${outArray}`)
   })
   return outArray
 }
@@ -663,10 +665,29 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
 -----------------------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
+function reduceArray (array, cbFunction, init) {
+  let accum = init;
+  array.forEach(function(arrayEl, idx) {
+    // console.log(`before call ${accum},${arrayEl},${idx}`)
+    accum = cbFunction(accum, arrayEl, idx)
+    // console.log(`after call ${accum}`)
+  })
+  return accum
+}
 
 
+// console.log("Solution to 18-reduceArray:",reduceArray( [1, 2, 3], function(acc, n) {
+//   return acc + n;
+// }, 0))
 
+// console.log("Solution to 18-reduceArray:",reduceArray( [1, 2, 3], function(acc, n, i) {
+//   return acc + n + i;
+// }, 0));
 
+// console.log("Solution to 18-reduceArray:",reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
+//   acc[v] = acc[v] ? acc[v] + 1 : 1;
+//   return acc;
+// }, {} ));
 
 /*-----------------------------------------------------------------------------
 Challenge: 19-flatten
