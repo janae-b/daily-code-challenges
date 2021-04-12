@@ -716,10 +716,27 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 -----------------------------------------------------------------------------*/
 // Your solution for 19-flatten here:
 
+function flatten(myArray) {
+let newArray = []
+// function flatten1 (myArray) {
+  // console.log(`Flatten1 enter ${myArray}`)
+  myArray.forEach(function(element) {
+    // console.log(`Top of j loop j=${j}, myArray[j]=${myArray[j]}, len=${myArray.length}`)
+    if (Array.isArray(element)) {
+      // console.log(`True: element=${element}`)
+      newArray = newArray.concat(flatten(element)) }
+      else {
+      newArray.push ( element)
+      // console.log(`False: newArray=${newArray}`)
+    } 
 
+  })
 
+return newArray
+}
 
-
+console.log("Solution to 19-flatten:",flatten( [1, [2, 3]] )); 
+console.log("Solution to 19-flatten:",flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] ))
 /*-----------------------------------------------------------------------------
 Challenge: 20-isPrime
 
