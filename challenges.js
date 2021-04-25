@@ -890,8 +890,46 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------------------*/
 // Your solution for 22-intersection here:
+function intersection( inArray1, inArray2 ) {
+  //input arrays contain mixture of strings, numbers, booleans
+  // Return new array containing the elements these input arrays have in common.
+
+  let outArray = [];
+  let tempArray1 = inArray1;
+  let tempArray2 = inArray2;
+
+  let j1, j2 = 0;
+  let j12Match = false;
+
+  for ( j1 = 0; j1 < tempArray1.length; j1++ ) {
+    j12Match = false;
+    // Check if this item is found in array2.
+    for ( j2 = 0; j2 < tempArray2.length && j12Match === false; j2++ ) {
+      if ( typeof tempArray1[j1] === `string` ) {
+        if ( 0 === tempArray1[j1].localeCompare( tempArray2[j2] )) {
+          j12Match = true;  
+        } 
+      } else {
+        if ( tempArray1[j1] === tempArray2[j2] ) {
+          j12Match = true
+        }
+      }
+      
+    }
+    if ( j12Match === true ) {
+      outArray.push( tempArray1[j1] );
+      tempArray2.splice( j2 - 1, 1 )
+    }
+    // console.log(`tempArray1 = ${tempArray1}`, `tempArray2 = ${tempArray2}`, `outArray = ${outArray}`, `j1 = ${j1}`, `j2 = ${j2}`)
+    
+  }
+  return outArray
+}
 
 
+// console.log("Solution to 22-intersection:", intersection(['a', 1], []))
+// console.log("Solution to 22-intersection:", intersection(['a', 1], [true, 'a', 15])); 
+// console.log("Solution to 22-intersection:", intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1])) 
 
 
 
