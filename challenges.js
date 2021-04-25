@@ -954,9 +954,66 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
+function balancedBrackets ( inString ) {
+  let myStack = [];
+  let balanced = true;
+  let j = 0;
+
+  for ( j= 0; j < inString.length && balanced === true; j++ ) {
+    switch ( inString.charAt(j) ) {
+      case '(':
+      case '[':
+      case '{':
+        myStack.push(inString.charAt(j));
+        break;
+
+      case ')':
+        if ( myStack[myStack.length-1] === '(' ) {
+          let tossIt = myStack.pop();
+        }
+        else
+        {
+          balanced = false;
+        }
+        break;
+        case ']':
+          if ( myStack[myStack.length-1] === '[' )
+          {
+            let tossIt = myStack.pop()
+          }
+          else 
+          {
+            balanced = false;
+          }
+          break;
+
+          case '}':
+            if ( myStack[myStack.length-1] === '{' )
+            {
+              let tossIt = myStack.pop();
+            }
+            else
+            {
+              balanced = false;
+            }
+            break;
+
+            default:
+              console.log(`error message: unrecogonized bracket ${inSTrring.charAt(j)} at position ${j}`)
+              balanced = false;
+              break;
+    }
+  }
+  return balanced
+}
 
 
 
+// console.log("Solution to 23-balancedBrackets:",balancedBrackets( '()' )) // => true
+// console.log("Solution to 23-balancedBrackets:",balancedBrackets( '(]' )) // => false
+// console.log("Solution to 23-balancedBrackets:",balancedBrackets( '[{}]' )) // => true
+// console.log("Solution to 23-balancedBrackets:",balancedBrackets( '[(])' )) // => false
+// console.log("Solution to 23-balancedBrackets:",balancedBrackets( '[({}[])]' )) // => true
 
 
 /*-----------------------------------------------------------------------------
@@ -985,9 +1042,23 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
 //What are the asky code
+function isWinningTicket (arrayOfTickets) {
+  let haveWinner = true;
+  let iTicket, j = 0;
 
+  for ( iTicket = 0; iTicket < arrayOfTickets.length && haveWinner === true; iTicket++ ) {
+    let stringFromCode = String.fromCharCode(arrayOfTickets[iTicket][1]);
+    if ( !arrayOfTickets[iTicket][0].includes(stringFromCode) ) {
+      haveWinner = false
+    }
+  }
+  return haveWinner
+}
 
-
+// console.log("Solution to 24-isWinningTicket:",isWinningTicket( [ ['ABC', 65] ] )) // => true
+// console.log("Solution to 24-isWinningTicket:",isWinningTicket( [ ['ABC', 999], ['XY', 89] ] )) // => false
+// console.log("Solution to 24-isWinningTicket:",isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] )) // => true
+// console.log("Solution to 24-isWinningTicket:",isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] )) // => false
 
 /*-----------------------------------------------------------------------------
 Challenge: 25-getNumForIP
