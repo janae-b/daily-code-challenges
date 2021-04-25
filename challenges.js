@@ -1085,11 +1085,27 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
+function getNumForIP( inIPString ) {
+  let IPSum = 0;
+  let j = 0
+  let IPNumber = 0
+  const IPStrings = inIPString.split('.');
+  // if (IPStrings.length != 4)  
+  // console.log(`Print Error Msg: Expect 4 substrings to be extracted, found IPStrings.lenght()`)
+  
+  IPSum = parseInt( IPStrings[0], 10 );
+  for ( j = 1;j < IPStrings.length; j++) 
+  {
+    IPNumber = parseInt( IPStrings[j], 10 );
+    IPSum = IPSum * 256 + IPNumber
+  }
+  return IPSum;
+}
 
-
-
-
-
+// console.log("Solution to 25-getNumForIP",getNumForIP( '0.0.0.1' )) // => 1
+// console.log("Solution to 25-getNumForIP",getNumForIP( '0.0.2.0' )) // => 512
+// console.log("Solution to 25-getNumForIP",getNumForIP( '192.156.99.15' )) // => 3231474447
+// console.log("Solution to 25-getNumForIP",getNumForIP( '10.0.0.1' )) // => 167772161
 /*-----------------------------------------------------------------------------
 Challenge: 26-toCamelCase
 
