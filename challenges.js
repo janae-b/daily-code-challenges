@@ -1243,9 +1243,9 @@ for (i = 0; i < directions.length; i++) {
 return grid
 }
 
-console.log("Solution to 27 CountTheBits",gridTrip( [0, 0], 'U2R1' )) // => [1, 2]
-console.log("Solution to 27 CountTheBits",gridTrip( [10, 5], 'D5L15U2' )) //-> [-5, 2]
-console.log("Solution to 27 CountTheBits",gridTrip( [100, -22], 'L2L15D50U1D9')) //=> [83, -80]
+// console.log("Solution to 27 CountTheBits",gridTrip( [0, 0], 'U2R1' )) // => [1, 2]
+// console.log("Solution to 27 CountTheBits",gridTrip( [10, 5], 'D5L15U2' )) //-> [-5, 2]
+// console.log("Solution to 27 CountTheBits",gridTrip( [100, -22], 'L2L15D50U1D9')) //=> [83, -80]
 
 /*-----------------------------------------------------------------------------
 Challenge: 29-addChecker
@@ -1272,10 +1272,27 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
+function addChecker (checkArray, checkSum) {
+  let inLen = checkArray.length;
+  let jSum = 0;
+  let i, j = 0;
+  let foundSum = false;
+
+  for ( i = 0; i < inLen - 1 && foundSum === false ; i++ ) {
+    for ( j = i+1; j < inLen && jSum < checkSum && foundSum === false; j++ ) {
+      jSum = checkArray[i] +  checkArray[j];
+      if ( jSum === checkSum )
+        foundSum = true;
+    }
+  } 
+return foundSum
+}
 
 
-
-
+// console.log("Solution to 28 addChecker",addChecker( [1, 2], 3 )) // => true
+// console.log("Solution to 28 addChecker",addChecker( [-3, 2], 9 )) // => false
+// console.log("Solution to 28 addChecker",addChecker( [10, 15, 16, 22], 32 )) // => true
+// console.log("Solution to 28 addChecker",addChecker( [10, 15, 16, 22], 19 )) // => false
 
 /*-----------------------------------------------------------------------------
 Challenge: 30-totalTaskTime
