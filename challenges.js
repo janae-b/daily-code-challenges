@@ -1289,10 +1289,10 @@ return foundSum
 }
 
 
-// console.log("Solution to 28 addChecker",addChecker( [1, 2], 3 )) // => true
-// console.log("Solution to 28 addChecker",addChecker( [-3, 2], 9 )) // => false
-// console.log("Solution to 28 addChecker",addChecker( [10, 15, 16, 22], 32 )) // => true
-// console.log("Solution to 28 addChecker",addChecker( [10, 15, 16, 22], 19 )) // => false
+// console.log("Solution to 29 addChecker",addChecker( [1, 2], 3 )) // => true
+// console.log("Solution to 29 addChecker",addChecker( [-3, 2], 9 )) // => false
+// console.log("Solution to 29 addChecker",addChecker( [10, 15, 16, 22], 32 )) // => true
+// console.log("Solution to 29 addChecker",addChecker( [10, 15, 16, 22], 19 )) // => false
 
 /*-----------------------------------------------------------------------------
 Challenge: 30-totalTaskTime
@@ -1321,5 +1321,45 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------------------*/
 // Your solution for 30- here:
+function totalTaskTime (taskQueue, nThreads) {
+  let taskLists = new Array(nThreads);
+  let sumTaskLists = new Array(nThreads);
+  let jTasks = taskQueue;
+  let nextTask = 0;
+  for (iThr = 0; iThr < nThreads; iThr++) {
+    taskLists[iThr] = [];
+  }
+
+  for (i = 0; i < nThreads; i++) {
+    sumTaskLists[i] = 0;
+  }
+
+  jTasks.sort(function(a, b) {
+    return a - b;
+  })
+
+//   console.log(`jTasks sorted ${jTasks}`)
+// }
+  while (jTasks.length > 0) {
+    let minSum = Math.min(...sumTaskLists);
+    let whichThread = sumTaskLists.indexOf(minSum);
+    nextTask = jTasks.pop();
+    taskLists[whichThread].push( nextTask );
+    sumTaskLists[whichThread] += nextTask;
+    // console.log(`nextTask = ${nextTask}`)
+    // console.log(`jTasks array = ${jTasks}`)
+    // console.log(`taskLists array = ${taskLists}`)
+    // console.log(`sumTaskLists array = ${sumTaskLists}`)
+    }
+    return ( Math.max(...sumTaskLists))
+  }
 
 
+
+
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [], 1 )) // => 0
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 5], 1 )) // => 11
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 8], 2 )) // => 8
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 10], 2 )) // => 12
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [2, 2, 3, 3, 4, 4], 2 )) //=> 9
+console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 2, 6, 8, 7, 2], 3 )) // => 12
