@@ -1130,8 +1130,19 @@ toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
+function toCamelCase ( string ) {
+  const regExp = /[-_]\w/ig;
+  return string.replace(regExp,(match) => {
+    return match.charAt(1).toUpperCase()
+    });
+}
 
 
+// console.log("Solution to 26-toCamelCase", toCamelCase( 'sei' )) // => 'sei'
+// console.log("Solution to 26-toCamelCase", toCamelCase( 'sei-rocks' )) // => 'seiRocks'
+// console.log("Solution to 26-toCamelCase", toCamelCase( 'banana_Turkey_potato' )) // => 'bananaTurkeyPotato'
+// console.log("Solution to 26-toCamelCase", toCamelCase( 'Mama-mia' )) // => 'MamaMia'
+// console.log("Solution to 26-toCamelCase", toCamelCase( 'A_b_c' )) // => 'ABC'
 
 
 
@@ -1160,9 +1171,21 @@ countTheBits( 255 ) //=> 8
 countTheBits( 65535 ) //=> 16
 -----------------------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
+function countTheBits( integer ) {
+  let base2String = integer.toString(2);
+  // let  countOnes = base2String.split('1').length -1;
+  let countOnes = [...base2String].filter(x => x === '1').length
+  return countOnes;
+  
+}
 
 
 
+// console.log("Solution to 27 CountTheBits",countTheBits( 0 )) // => 0
+// console.log("Solution to 27 CountTheBits",countTheBits( 13 )) // => 3
+// console.log("Solution to 27 CountTheBits",countTheBits( 256 )) // => 1
+// console.log("Solution to 27 CountTheBits",countTheBits( 255 )) //=> 8
+// console.log("Solution to 27 CountTheBits",countTheBits( 65535 )) //=> 16
 
 
 /*-----------------------------------------------------------------------------
