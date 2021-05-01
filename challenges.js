@@ -1213,9 +1213,39 @@ gridTrip( [100, -22], 'L2L15D50U1D9') //=> [83, -80]
 -----------------------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
 
+function gridTrip ( gridArray, gridString ) {
+  let grid = [gridArray[0], gridArray[1]];
+  let regex = /[A-Z]/g; 
+  let directions = gridString.match(regex)
+  // console.log(directions);
+  let unitsToMove = gridString.split(/[DULR]/);
+  // console.log(`Units to Move Before: ${unitsToMove}`)
+for (i = 0; i < directions.length; i++) {
+  nToMove = parseInt(unitsToMove[i + 1]);
+  // console.log(`Units to Move ${unitsToMove[i + 1]}`)
+  // console.log(`nToMove = ${nToMove}`)
+  switch( directions[i] ) {
+    case "L":
+      grid[0] -= nToMove;
+      break;
+    case "R":
+      grid[0] += nToMove;
+      break;
+    case "U":
+      grid[1] += nToMove;
+      break;
+    case "D":
+      grid[1] -= nToMove;
+      break;
+    default:
+  }
+}
+return grid
+}
 
-
-
+console.log("Solution to 27 CountTheBits",gridTrip( [0, 0], 'U2R1' )) // => [1, 2]
+console.log("Solution to 27 CountTheBits",gridTrip( [10, 5], 'D5L15U2' )) //-> [-5, 2]
+console.log("Solution to 27 CountTheBits",gridTrip( [100, -22], 'L2L15D50U1D9')) //=> [83, -80]
 
 /*-----------------------------------------------------------------------------
 Challenge: 29-addChecker

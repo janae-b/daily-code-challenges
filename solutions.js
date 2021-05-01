@@ -1168,17 +1168,17 @@ function gridTrip(xyArr, moves) {
 }
 
 /*--- Using regular expressions to break up the moves into an array ---*/
-// function gridTrip(xyArr, moves) {
-//   var result = [xyArr[0], xyArr[1]];
-//   const lookup = {'R': [0, 1], 'U': [1, 1], 'L': [0, -1], 'D': [1, -1]}; 
+function gridTrip(xyArr, moves) {
+  var result = [xyArr[0], xyArr[1]];
+  const lookup = {'R': [0, 1], 'U': [1, 1], 'L': [0, -1], 'D': [1, -1]}; 
 //   // regular expressions are fantastic - be sure to use the 'global' flag with the match method
-//   moves = moves.match(/[UDLR]\d+/g);
-//   moves.forEach(function(move) {
-//     var dir = move.charAt(0);
-//     result[lookup[dir][0]] += move.substr(1) * lookup[dir][1];
-//   });
-//   return result;
-// }
+  moves = moves.match(/[UDLR]\d+/g);
+  moves.forEach(function(move) {
+    var dir = move.charAt(0);
+    result[lookup[dir][0]] += move.substr(1) * lookup[dir][1];
+  });
+  return result;
+}
 
 
 /*-----------------------------------------------------------------------------
