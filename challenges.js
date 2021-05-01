@@ -1330,14 +1330,15 @@ function totalTaskTime (taskQueue, nThreads) {
     taskLists[iThr] = [];
   }
 
-  for (i = 0; i < nThreads; i++) {
-    sumTaskLists[i] = 0;
-  }
+  // for (i = 0; i < nThreads; i++) {
+  //   sumTaskLists[i] = 0;
+  // }
+  sumTaskLists.fill(0)
 
   jTasks.sort(function(a, b) {
     return a - b;
   })
-
+console.log(`Sorted taskQueue: ${taskQueue}`)
 //   console.log(`jTasks sorted ${jTasks}`)
 // }
   while (jTasks.length > 0) {
@@ -1351,15 +1352,27 @@ function totalTaskTime (taskQueue, nThreads) {
     // console.log(`taskLists array = ${taskLists}`)
     // console.log(`sumTaskLists array = ${sumTaskLists}`)
     }
+    console.log()
+    for (iThr = 0; iThr < nThreads; iThr++) {
+      console.log(`threadNumber ${iThr}: ${taskLists[iThr]}`);
+    }
     return ( Math.max(...sumTaskLists))
   }
 
 
 
-
+console.log("")
+console.log("For Solution to 30 totalTaskTime, two of the example solutions have shorter total task times.")
+console.log("Data structures are printed below to show solutions.")
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [], 1 )) // => 0
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 5], 1 )) // => 11
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 8], 2 )) // => 8
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 10], 2 )) // => 12
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [2, 2, 3, 3, 4, 4], 2 )) //=> 9
+console.log("")
 console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 2, 6, 8, 7, 2], 3 )) // => 12
