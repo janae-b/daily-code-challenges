@@ -273,13 +273,13 @@ function charCount (inString) {
   let i = 0
   let charCountObj = {}
   for (i = 0; i < inString.length; i++) {
-    let jChar = inString.charAt(i); //jChar is the next character in string
-    if (charCountObj.hasOwnProperty(jChar)) // if this character is already in the object
+    let jChar = inString.charAt(i); 
+    if (charCountObj.hasOwnProperty(jChar)) 
     {
-      charCountObj[jChar]++ // increase the existing count
+      charCountObj[jChar]++ 
     }
     else {
-      charCountObj[jChar] = 1 // add that key to the object with the count = 1
+      charCountObj[jChar] = 1 
     }
   }
   return charCountObj
@@ -351,7 +351,6 @@ function isPalindrome (palinString) {
   return true
   } 
   let tempString = palinString.toUpperCase()
-  // tempString = tempString.trim()
   tempString = tempString.split(" ").join("") 
   if (tempString.length <= 1) {
     return true }
@@ -408,7 +407,6 @@ function hammingDistance (word, matchingWord) {
   } else {    
   for (i = 0; i < word.length; i++) {
     if ( word.charAt(i) !== matchingWord.charAt(i) ) {
-      //Chars at this position are different, so increment the count.
       countChars++;
     }
   } 
@@ -444,15 +442,12 @@ mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 function mumble (inString) {
-  let i, j = 0;     //Loop indexes
-  let outString = inString[0];  //Return value, count of chars that are different.
+  let i, j = 0;     
+  let outString = inString[0];  
   if (inString.length === 1)
   return outString;
-  //for each char in the input String, starting with second char.
   for (i = 1; i < inString.length; i++ ) {
-    // Adding the hyphen
     outString = outString + '-';
-    // Add this char the required number of times, which is (i+1) times.
     outString = outString + inString.charAt(i).repeat(i + 1) 
   }
   return outString;
@@ -668,9 +663,7 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 function reduceArray (array, cbFunction, init) {
   let accum = init;
   array.forEach(function(arrayEl, idx) {
-    // console.log(`before call ${accum},${arrayEl},${idx}`)
     accum = cbFunction(accum, arrayEl, idx)
-    // console.log(`after call ${accum}`)
   })
   return accum
 }
@@ -718,21 +711,14 @@ flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 
 function flatten(myArray) {
 let newArray = []
-// function flatten1 (myArray) {
-  // console.log(`Flatten1 enter ${myArray}`)
   myArray.forEach(function(element) {
-    // console.log(`Top of j loop j=${j}, myArray[j]=${myArray[j]}, len=${myArray.length}`)
     if (Array.isArray(element)) {
-      // console.log(`True: element=${element}`)
       newArray = newArray.concat(flatten(element)) }
       else {
       newArray.push ( element)
-      // console.log(`False: newArray=${newArray}`)
     } 
-
   })
-
-return newArray
+  return newArray
 }
 
 // console.log("Solution to 19-flatten:",flatten( [1, [2, 3]] )); 
@@ -759,9 +745,9 @@ isPrime(200) //=> false
 
 function isPrime(inputNumber) {
   for(let i = 2; i < inputNumber; i++) {
-      if(inputNumber % i === 0) {
-          return false;
-      }
+    if(inputNumber % i === 0) {
+      return false;
+    }
   }
   return inputNumber > 1;
 }
@@ -829,27 +815,18 @@ function primeFactors(inputNumber) {
   let moreSearch = true
 
   if (jNum <= 1) {
-    // console.log(`Error = inputNumber <= 1`)
     return []
   } else {
-    moreSearch = true //Initialize the loop
-    nextFactor = 2 //Initialize to the first prime factor to check
+    moreSearch = true 
+    nextFactor = 2 
     let i = 0
     while (moreSearch === true && i < 80) {
       i++
-      // console.log(`jNum is ${jNum}`)
-      // console.log(`nextFactor is ${nextFactor}`)
       if (jNum % nextFactor === 0) {
-        // Yes, is divisible, add nextFactor to array of primes for this number
         arrayPrimeFactors.push(nextFactor)
-        arrayPFIndex += 1 // increment the index, count of prime factors found
-        //Divide (remove this prime factor from the number being factored)
+        arrayPFIndex += 1 
         jNum = jNum / nextFactor
-        //if jNum === 1 then all the prime factors have been found
-        // console.log(`if jNum is ${jNum}`)
-        // console.log(`if nextFactor is ${nextFactor}`)
         if (jNum === 1) {
-
           moreSearch = false
         }
       }
@@ -866,7 +843,8 @@ function primeFactors(inputNumber) {
     }
   }
   return arrayPrimeFactors
-} //End of primeFactors
+} 
+
 // console.log(`Is primeFactors 2: ${primeFactors(2)}`)
 // console.log(`Is primeFactors 3: ${primeFactors(3)}`)
 // console.log(`Is primeFactors 4: ${primeFactors(4)}`)
@@ -898,8 +876,6 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------------------*/
 // Your solution for 22-intersection here:
 function intersection( inArray1, inArray2 ) {
-  //input arrays contain mixture of strings, numbers, booleans
-  // Return new array containing the elements these input arrays have in common.
 
   let outArray = [];
   let tempArray1 = inArray1;
@@ -927,8 +903,6 @@ function intersection( inArray1, inArray2 ) {
       outArray.push( tempArray1[j1] );
       tempArray2.splice( j2 - 1, 1 )
     }
-    // console.log(`tempArray1 = ${tempArray1}`, `tempArray2 = ${tempArray2}`, `outArray = ${outArray}`, `j1 = ${j1}`, `j2 = ${j2}`)
-    
   }
   return outArray
 }
@@ -1096,10 +1070,7 @@ function getNumForIP( inIPString ) {
   let IPSum = 0;
   let j = 0
   let IPNumber = 0
-  const IPStrings = inIPString.split('.');
-  // if (IPStrings.length != 4)  
-  // console.log(`Print Error Msg: Expect 4 substrings to be extracted, found IPStrings.lenght()`)
-  
+  const IPStrings = inIPString.split('.');  
   IPSum = parseInt( IPStrings[0], 10 );
   for ( j = 1;j < IPStrings.length; j++) 
   {
@@ -1180,10 +1151,8 @@ countTheBits( 65535 ) //=> 16
 // Your solution for 27-countTheBits here:
 function countTheBits( integer ) {
   let base2String = integer.toString(2);
-  // let  countOnes = base2String.split('1').length -1;
   let countOnes = [...base2String].filter(x => x === '1').length
   return countOnes;
-  
 }
 
 
@@ -1224,13 +1193,9 @@ function gridTrip ( gridArray, gridString ) {
   let grid = [gridArray[0], gridArray[1]];
   let regex = /[A-Z]/g; 
   let directions = gridString.match(regex)
-  // console.log(directions);
   let unitsToMove = gridString.split(/[DULR]/);
-  // console.log(`Units to Move Before: ${unitsToMove}`)
 for (i = 0; i < directions.length; i++) {
   nToMove = parseInt(unitsToMove[i + 1]);
-  // console.log(`Units to Move ${unitsToMove[i + 1]}`)
-  // console.log(`nToMove = ${nToMove}`)
   switch( directions[i] ) {
     case "L":
       grid[0] -= nToMove;
@@ -1284,7 +1249,6 @@ function addChecker (checkArray, checkSum) {
   let jSum = 0;
   let i, j = 0;
   let foundSum = false;
-
   for ( i = 0; i < inLen - 1 && foundSum === false ; i++ ) {
     for ( j = i+1; j < inLen && jSum < checkSum && foundSum === false; j++ ) {
       jSum = checkArray[i] +  checkArray[j];
