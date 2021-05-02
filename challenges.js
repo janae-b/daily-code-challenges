@@ -17,7 +17,7 @@ function sayHello() {
   return 'Hello!'
 }
 
-console.log(sayHello())
+// console.log(sayHello())
 
 /*-----------------------------------------------------------------------------
 Challenge: 01-addOne
@@ -756,40 +756,47 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-function isPrime (inputNumber) {
-let isNumPrime = false
-let jIndex = 0  
 
-if (inputNumber === 2 || inputNumber === 3) {
-  return isNumPrime = true
-} else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
-  return isNumPrime = false
-} else { 
-  jIndex = 5  // Initialize for loop
-  isNumPrime = true // Will be set to false if a factor is found
+function isPrime(inputNumber) {
+  for(let i = 2; i < inputNumber; i++) {
+      if(inputNumber % i === 0) {
+          return false;
+      }
+  }
+  return inputNumber > 1;
+}
 
-  while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
-    if (inputNumber % jIndex === 0) {
-      
-      //found a factor, so inputNumber is not a Prime
-      return isNumPrime = false
-    } else { // Not divisible by jIndex, get next number to try as a factor
+  
+// function isPrime (inputNumber) {
+// let isNumPrime = false
+// let jIndex = 0  
 
-      jIndex += 2 //Skip all the even numbers
-      if (jIndex % 3 === 0) {
-        jIndex += 2 //This is odd and not divisible by 3
-      } // End of small if
-    } // End of Else
-  }// End while
-  return isNumPrime
- } // End of first if
-} // End of Function isPrime()
+// if (inputNumber === 2 || inputNumber === 3) {
+//   return isNumPrime = true
+// } else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
+//   return isNumPrime = false
+// } else { 
+//   jIndex = 5  
+//   isNumPrime = true 
+//   while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
+//     if (inputNumber % jIndex === 0) {
+//       return isNumPrime = false
+//     } else { 
+//       jIndex += 2 
+//       if (jIndex % 3 === 0) {
+//         jIndex += 2 
+//       } 
+//     }
+//   }
+//   return isNumPrime
+//  } 
+// } 
 
-// console.log(`Solution for isPrime 25 ${isPrime(25)}`)
-// console.log(`Solution for isPrime 29 ${isPrime(29)}`)
-// console.log(`Solution for isPrime 4 ${isPrime(4)}`)
-// console.log(`Solution for isPrime 200 ${isPrime(200)}`)
-// console.log(`Solution for isPrime 9 ${isPrime(9)}`)
+console.log(`Solution for isPrime 2 ${isPrime(2)}`)
+console.log(`Solution for isPrime 3 ${isPrime(3)}`)
+console.log(`Solution for isPrime 4 ${isPrime(4)}`)
+console.log(`Solution for isPrime 29 ${isPrime(29)}`)
+console.log(`Solution for isPrime 200 ${isPrime(200)}`)
 /*-----------------------------------------------------------------------------
 Challenge: 21-primeFactors
 
@@ -1361,18 +1368,18 @@ console.log(`Sorted taskQueue: ${taskQueue}`)
 
 
 
-console.log("")
-console.log("For Solution to 30 totalTaskTime, two of the example solutions have shorter total task times.")
-console.log("Data structures are printed below to show solutions.")
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [], 1 )) // => 0
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 5], 1 )) // => 11
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 8], 2 )) // => 8
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 10], 2 )) // => 12
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [2, 2, 3, 3, 4, 4], 2 )) //=> 9
-console.log("")
-console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 2, 6, 8, 7, 2], 3 )) // => 12
+// console.log("")
+// console.log("For Solution to 30 totalTaskTime, two of the example solutions have shorter total task times.")
+// console.log("Data structures are printed below to show solutions.")
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [], 1 )) // => 0
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 5], 1 )) // => 11
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 8], 2 )) // => 8
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 10], 2 )) // => 12
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [2, 2, 3, 3, 4, 4], 2 )) //=> 9
+// console.log("")
+// console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 2, 6, 8, 7, 2], 3 )) // => 12
