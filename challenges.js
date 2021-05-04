@@ -99,6 +99,7 @@ function sumNumbers(newArray) {
   return newArraySum
 }
 
+
 // console.log(`Solution for 03-sumNumbers: ${sumNumbers([10])}`)
 // console.log(`Solution for 03-sumNumbers: ${sumNumbers([5, 10])}`)
 // console.log(`Solution for 03-sumNumbers: ${sumNumbers([2, 10, -5])}`)
@@ -191,7 +192,7 @@ function range (startNum, endNum) {
     return "First argument must be less than second"
   } else {
     for(i = startNum; i < endNum; i++) {
-      rangeList.push([i])
+      rangeList.push(i)
     }
   } return rangeList
 }
@@ -344,33 +345,41 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-function isPalindrome (palinString) {
-  let i, j = 0;
-  let foundPalindrome = true
-  if (palinString.length <= 1) {
-  return true
-  } 
-  let tempString = palinString.toUpperCase()
-  tempString = tempString.split(" ").join("") 
-  if (tempString.length <= 1) {
-    return true }
+// function isPalindrome (palinString) {
+//   let i, j = 0;
+//   let foundPalindrome = true
+//   if (palinString.length <= 1) {
+//   return true
+//   } 
+//   let tempString = palinString.toUpperCase()
+//   tempString = tempString.split(" ").join("") 
+//   if (tempString.length <= 1) {
+//     return true }
 
 
-    foundPalindrome = true;
-    i = 0
-    j = tempString.length -1
-    while ( (i < j) && (foundPalindrome === true)) {
-      if (tempString.charAt(i) === tempString.charAt(j))
-      {
-        i++
-        j--
-      }
-      else {
-        foundPalindrome = false
-      }
-    }
-    return foundPalindrome
-} 
+//     foundPalindrome = true;
+//     i = 0
+//     j = tempString.length -1
+//     while ( (i < j) && (foundPalindrome === true)) {
+//       if (tempString.charAt(i) === tempString.charAt(j))
+//       {
+//         i++
+//         j--
+//       }
+//       else {
+//         foundPalindrome = false
+//       }
+//     }
+//     return foundPalindrome
+// } 
+
+function isPalindrome(string) {
+  let regex = /[\W_]/g;
+  let newString = string.toUpperCase().replace(regex, '');
+  let reverseStr = newString.split('').reverse().join('');
+  return reverseStr === newString;
+}
+
   
 
 
@@ -742,47 +751,37 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
-
-function isPrime(inputNumber) {
-  for(let i = 2; i < inputNumber; i++) {
-    if(inputNumber % i === 0) {
-      return false;
+  
+function isPrime (inputNumber) {
+let isNumPrime = false
+let jIndex = 0  
+if (inputNumber < 2 || !Number.isInteger(inputNumber)) return false;
+if (inputNumber === 2 || inputNumber === 3) {
+  return isNumPrime = true
+} else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
+  return isNumPrime = false
+} else { 
+  jIndex = 5  
+  isNumPrime = true 
+  while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
+    if (inputNumber % jIndex === 0) {
+      return isNumPrime = false
+    } else { 
+      jIndex += 2 
+      if (jIndex % 3 === 0) {
+        jIndex += 2 
+      } 
     }
   }
-  return inputNumber > 1;
-}
+  return isNumPrime
+ } 
+} 
 
-  
-// function isPrime (inputNumber) {
-// let isNumPrime = false
-// let jIndex = 0  
-
-// if (inputNumber === 2 || inputNumber === 3) {
-//   return isNumPrime = true
-// } else if (inputNumber % 2 === 0 || inputNumber % 3 === 0) {
-//   return isNumPrime = false
-// } else { 
-//   jIndex = 5  
-//   isNumPrime = true 
-//   while (isNumPrime === true && jIndex * jIndex <= inputNumber) {
-//     if (inputNumber % jIndex === 0) {
-//       return isNumPrime = false
-//     } else { 
-//       jIndex += 2 
-//       if (jIndex % 3 === 0) {
-//         jIndex += 2 
-//       } 
-//     }
-//   }
-//   return isNumPrime
-//  } 
-// } 
-
-console.log(`Solution for isPrime 2 ${isPrime(2)}`)
-console.log(`Solution for isPrime 3 ${isPrime(3)}`)
-console.log(`Solution for isPrime 4 ${isPrime(4)}`)
-console.log(`Solution for isPrime 29 ${isPrime(29)}`)
-console.log(`Solution for isPrime 200 ${isPrime(200)}`)
+// console.log(`Solution for 20-isPrime 2 ${isPrime(2)}`)
+// console.log(`Solution for 20-isPrime 3 ${isPrime(3)}`)
+// console.log(`Solution for 20-isPrime 4 ${isPrime(4)}`)
+// console.log(`Solution for 20-isPrime 29 ${isPrime(29)}`)
+// console.log(`Solution for 20-isPrime 200 ${isPrime(200)}`)
 /*-----------------------------------------------------------------------------
 Challenge: 21-primeFactors
 
@@ -950,7 +949,7 @@ function balancedBrackets ( inString ) {
 
       case ')':
         if ( myStack[myStack.length-1] === '(' ) {
-          let tossIt = myStack.pop();
+          myStack.pop();
         }
         else
         {
@@ -960,7 +959,7 @@ function balancedBrackets ( inString ) {
         case ']':
           if ( myStack[myStack.length-1] === '[' )
           {
-            let tossIt = myStack.pop()
+            myStack.pop()
           }
           else 
           {
@@ -971,7 +970,7 @@ function balancedBrackets ( inString ) {
           case '}':
             if ( myStack[myStack.length-1] === '{' )
             {
-              let tossIt = myStack.pop();
+              myStack.pop();
             }
             else
             {
@@ -1293,57 +1292,21 @@ totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------------------*/
 // Your solution for 30- here:
 function totalTaskTime (taskQueue, nThreads) {
-  let taskLists = new Array(nThreads);
-  let sumTaskLists = new Array(nThreads);
-  let jTasks = taskQueue;
-  let nextTask = 0;
-  for (iThr = 0; iThr < nThreads; iThr++) {
-    taskLists[iThr] = [];
+  let time = 0, minSum, sumTaskLists;
+  while (taskQueue.length > nThreads) {
+    sumTaskLists = taskQueue.splice(0, nThreads);
+    minSum = Math.min(...sumTaskLists);
+    time += minSum;
+    sumTaskLists = sumTaskLists.map(t => t - minSum).filter(t => t);
+    taskQueue = sumTaskLists.concat(taskQueue);
   }
-
-  // for (i = 0; i < nThreads; i++) {
-  //   sumTaskLists[i] = 0;
-  // }
-  sumTaskLists.fill(0)
-
-  jTasks.sort(function(a, b) {
-    return a - b;
-  })
-console.log(`Sorted taskQueue: ${taskQueue}`)
-//   console.log(`jTasks sorted ${jTasks}`)
-// }
-  while (jTasks.length > 0) {
-    let minSum = Math.min(...sumTaskLists);
-    let whichThread = sumTaskLists.indexOf(minSum);
-    nextTask = jTasks.pop();
-    taskLists[whichThread].push( nextTask );
-    sumTaskLists[whichThread] += nextTask;
-    // console.log(`nextTask = ${nextTask}`)
-    // console.log(`jTasks array = ${jTasks}`)
-    // console.log(`taskLists array = ${taskLists}`)
-    // console.log(`sumTaskLists array = ${sumTaskLists}`)
-    }
-    console.log()
-    for (iThr = 0; iThr < nThreads; iThr++) {
-      console.log(`threadNumber ${iThr}: ${taskLists[iThr]}`);
-    }
-    return ( Math.max(...sumTaskLists))
-  }
+    return time + (taskQueue.length ? Math.max(...taskQueue) : 0)
+}
 
 
-
-// console.log("")
-// console.log("For Solution to 30 totalTaskTime, two of the example solutions have shorter total task times.")
-// console.log("Data structures are printed below to show solutions.")
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [], 1 )) // => 0
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 5], 1 )) // => 11
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 8], 2 )) // => 8
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [4, 2, 10], 2 )) // => 12
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [2, 2, 3, 3, 4, 4], 2 )) //=> 9
-// console.log("")
 // console.log("Solution to 30 totalTaskTime" ,totalTaskTime( [5, 2, 6, 8, 7, 2], 3 )) // => 12
